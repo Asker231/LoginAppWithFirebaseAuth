@@ -27,38 +27,64 @@ struct SignUpView: View {
                 Spacer()
                 VStack(spacing: 30){
                     Spacer()
-                    VStack(spacing: 20){
+                    VStack(alignment: .leading,spacing: 20){
                         ZStack{
-                            TextField("Yor login...", text: $name)
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                                .foregroundColor(.gray)
+                            VStack(alignment: .leading){
+                                Text("Name")
+                                    .foregroundColor(.white)
+                                    .font(.system(size: 12))
+                                
+                                TextField("Yor name...", text: $name)
+                                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                                    .foregroundColor(.gray)
+                            }
                                 //.cornerRadius(20)
                         }.frame(width: 300 )
                             //.underline()
                         ZStack{
-                            TextField("Yor password..", text: $email)
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                                .foregroundColor(.gray)
-                               // .cornerRadius(20)
+                            VStack(alignment: .leading){
+                                Text("Email")
+                                    .foregroundColor(.white)
+                                    .font(.system(size: 12))
+                                
+                                TextField("Yor emal..", text: $email)
+                                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                                    .foregroundColor(.gray)
+                                   // .cornerRadius(20)
+                            }
                         }.frame(width: 300 )
                         
                         ZStack{
-                            TextField("Yor password..", text: $phone)
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                                .foregroundColor(.gray)
-                                //.cornerRadius(20)
+                            
+                            VStack(alignment: .leading){
+                                Text("Phone number")
+                                    .foregroundColor(.white)
+                                    .font(.system(size: 12))
+                                
+                                TextField("Yor phone..", text: $phone)
+                                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                                    .foregroundColor(.gray)
+                                    //.cornerRadius(20)
+                            }
                         }.frame(width: 300 )
                         
                         ZStack{
-                            TextField("Yor password..", text: $password)
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                                .foregroundColor(.gray)
-                                //.cornerRadius(20)
+                            
+                            VStack(alignment: .leading){
+                                Text("Password")
+                                    .foregroundColor(.white)
+                                    .font(.system(size: 12))
+                                
+                                TextField("Yor password..", text: $password)
+                                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                                    .foregroundColor(.gray)
+                                    //.cornerRadius(20)
+                            }
                         }.frame(width: 300 )
                     }
                     .padding(.vertical,20)
                     .padding(.horizontal,10)
-                    .background(Color("signin"))
+                    //.background(Color("signin"))
                     .cornerRadius(20)
                     
                     
