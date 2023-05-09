@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct SignInView: View {
     @State var login     : String = " "
@@ -45,7 +46,7 @@ struct SignInView: View {
                     }.frame(maxWidth: 290)
                     VStack(spacing:30){
                         Button {
-                            print(0)
+                      // 
                         } label: {
                             ZStack{
                                 Text("Sign In")

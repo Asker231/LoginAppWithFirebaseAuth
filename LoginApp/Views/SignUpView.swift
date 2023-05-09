@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import FirebaseAuth
+
 
 struct SignUpView: View {
     @State var name      : String = " "
@@ -50,26 +52,20 @@ struct SignUpView: View {
                                 TextField("Yor emal..", text: $email)
                                     .textFieldStyle(RoundedBorderTextFieldStyle())
                                     .foregroundColor(.gray)
-                                   // .cornerRadius(20)
                             }
                         }.frame(width: 300 )
                         
                         ZStack{
-                            
                             VStack(alignment: .leading){
                                 Text("Phone number")
                                     .foregroundColor(.white)
                                     .font(.system(size: 12))
-                                
                                 TextField("Yor phone..", text: $phone)
                                     .textFieldStyle(RoundedBorderTextFieldStyle())
                                     .foregroundColor(.gray)
-                                    //.cornerRadius(20)
                             }
                         }.frame(width: 300 )
-                        
                         ZStack{
-                            
                             VStack(alignment: .leading){
                                 Text("Password")
                                     .foregroundColor(.white)
@@ -78,20 +74,24 @@ struct SignUpView: View {
                                 TextField("Yor password..", text: $password)
                                     .textFieldStyle(RoundedBorderTextFieldStyle())
                                     .foregroundColor(.gray)
-                                    //.cornerRadius(20)
                             }
                         }.frame(width: 300 )
                     }
                     .padding(.vertical,20)
                     .padding(.horizontal,10)
-                    //.background(Color("signin"))
                     .cornerRadius(20)
-                    
-                    
                     Spacer()
                     VStack(spacing:30){
                         Button {
-                            print(0)
+                        Auth.auth().createUser(withEmail: email, password: password){
+                                value,error  in
+                                if let value = value {
+                                    print(value.user.uid)
+                                }
+                            if let error = error{
+                                print(error)
+                            }
+                            }
                         } label: {
                             ZStack{
                                 Text("Sign Up")
